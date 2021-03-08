@@ -56,4 +56,10 @@ public class UserDao {
         user.setPassword(newPassword);
         return userMapper.updateByExample(user, example);
     }
+    public int updateUserById(User user){
+        return userMapper.updateByPrimaryKeySelective(user);
+    }
+    public List<User> getAllUser(){
+        return userMapper.selectAll();
+    }
 }

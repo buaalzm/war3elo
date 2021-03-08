@@ -25,7 +25,7 @@ public class CombatController {
     @Autowired
     private EloService eloService;
 
-    @GetMapping(value = "/addCombat",produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/addCombat",produces = "application/json;charset=UTF-8")
     public JsonResult<List<Elo>> addCombat(@RequestParam("winner") String winner,@RequestParam("loser") String loser){
         Combat combat = new Combat();
         combat.setWinner(winner);

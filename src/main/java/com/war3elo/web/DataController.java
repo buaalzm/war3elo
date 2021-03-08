@@ -24,19 +24,19 @@ public class DataController {
     @Autowired
     private CombatService combatService;
 
-    @GetMapping(value="/getAllElos",produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/getAllElos",produces = "application/json;charset=UTF-8")
     public JsonResult<List<Elo>> getAllElos(){
         return new JsonResult<List<Elo>>(eloService.getAllElos());
     }
 
-    @GetMapping(value="/getAllCombats",produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/getAllCombats",produces = "application/json;charset=UTF-8")
     public JsonResult<List<Combat>> getAllCombats(){
         return new JsonResult<List<Combat>>(combatService.getAllCombats());
     }
     /*
     * 删除一个对战，成功删除后添加一局相反的对局更新elo
     * */
-    @GetMapping(value="/deleteCombatById",produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/deleteCombatById",produces = "application/json;charset=UTF-8")
     public JsonResult<Integer> deleteCombatById(@RequestParam("id") int id){
         Combat combat = combatService.getCombatById(id);
         if (combat == null){
@@ -59,7 +59,7 @@ public class DataController {
         }
         return ret;
     }
-    @GetMapping(value="/deleteEloByUsername",produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/deleteEloByUsername",produces = "application/json;charset=UTF-8")
     public JsonResult<Integer> deleteEloByUsername(@RequestParam("username") String username){
         int i = eloService.deleteEloByUsername(username);
         if (i == 0){
@@ -68,7 +68,7 @@ public class DataController {
         }
         return new JsonResult(0);
     }
-    @GetMapping(value="/deleteEloById",produces= MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/deleteEloById",produces = "application/json;charset=UTF-8")
     public JsonResult<Integer> deleteEloById(@RequestParam("id") int id){
         int i = eloService.deleteEloById(id);
         if (i == 0){
