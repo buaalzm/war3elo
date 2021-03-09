@@ -27,6 +27,11 @@ public class Combat {
     private Integer id;
     private String winner;
     private String loser;
+    @Column(name="winner_race")
+    private String winnerRace;
+    @Column(name="loser_race")
+    private String loserRace;
+    private String map;
     @Column(name="create_time")
     private Date createTime;
 }

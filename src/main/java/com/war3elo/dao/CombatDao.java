@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
+import tk.mybatis.mapper.util.Sqls;
 
 import java.util.List;
 
@@ -29,6 +30,13 @@ public class CombatDao {
         Criteria criteria = example.createCriteria();
         criteria.andIn("id",ids);
         example.and(criteria);
+        return combatMapper.deleteByExample(example);
+    }
+    public int deleteCombatByUsername(String username){
+        Example example = Example.builder(Combat.class)
+                .where(Sqls.custom()
+                        .andEqualTo("winner", username)
+                        .andEqualTo("loser", username)).build();
         return combatMapper.deleteByExample(example);
     }
     public int updateCombatById(Combat combat){

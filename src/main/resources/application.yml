@@ -8,12 +8,4 @@ spring:
 #      - configlocal
       - configremote
 
-server:
-  servlet:
-    encoding:
-      force: true
-      charset: utf-8
-      enabled: true
 
-  tomcat:
-    uri-encoding: UTF-8

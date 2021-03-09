@@ -19,7 +19,7 @@ public class UserDaoTest {
     @Test
     public void InsertUser(){
         User user = new User();
-        user.setUsername("tom2");
+        user.setUsername("mike");
         user.setPassword("123");
         userService.addUser(user);
     }
@@ -46,5 +46,9 @@ public class UserDaoTest {
         String username = "tom2";
         String password = "321";
         System.out.println(userService.updatePasswordByUsername(username,password));
+    }
+    @Test
+    public void getAllUser(){
+        System.out.println(userService.getAllUser());
     }
 }

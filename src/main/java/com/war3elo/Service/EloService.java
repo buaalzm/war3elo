@@ -48,6 +48,19 @@ public class EloService {
         elo.setElo(eloDao.getDefaultElo());
         return elo;
     }
+    public Elo getEloByUsername(String username){
+        return eloDao.getEloByUsername(username);
+    }
+    public void addDeaultIfNotExist(String username){
+        Elo elo = getEloByUsername(username);
+        if (elo != null){
+            // exist, return
+            return;
+        }
+        else {
+            addDefaultElo(username);
+        }
+    }
     public List<Elo> getAllElos(){
         return eloDao.getALLElos();
     }

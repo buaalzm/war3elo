@@ -27,4 +27,7 @@ public class CombatService {
     public int deleteCombatById(int id){
         return combatDao.deleteCombatById(id);
     }
+    public int deleteCombatByUsername(String username){
+        return combatDao.deleteCombatByUsername(username);
+    }
 }

@@ -24,6 +24,12 @@ public class UserService {
     public int deleteUserById(int id){
         return userDao.deleteUserById(id);
     }
+    public User getUserById(int id){
+        return userDao.getUserById(id);
+    }
+    public User getUserByUsername(String username){
+        return userDao.getUserByUsername(username);
+    }
     public int deleteUserByUsername(String username){
         return userDao.deleteUserByUsername(username);
     }

@@ -47,6 +47,11 @@ public class UserDao {
         else
             return users.get(0);
     }
+    public User getUserById(int id){
+        User user = new User();
+        user.setId(id);
+        return userMapper.selectByPrimaryKey(user);
+    }
     public int updatePasswordByUsername(String username,String newPassword){
         Example example = new Example(User.class);
         Criteria criteria = example.createCriteria();
@@ -60,6 +65,7 @@ public class UserDao {
         return userMapper.updateByPrimaryKeySelective(user);
     }
     public List<User> getAllUser(){
-        return userMapper.selectAll();
+        Example example = Example.builder(User.class).select("id","username").build();
+        return userMapper.selectByExample(example);
     }
 }
